@@ -11,7 +11,7 @@ You need these installed on your machine before you can begin.
 * Docker Compose
 * CMake
 
-You will also need an *AWS Account*
+You will also need an _AWS Account_
 
 ### Technology Used
 * Docker, Docker Compose
@@ -27,7 +27,11 @@ Overview of how the application fits together.
 
 ## Getting setup
 
-### Running Terraform
+### Building the app
+
+### Running it locally
+
+### Running terraform
 
 * Create an account on [AWS](https://aws.amazon.com/console/)
   * You will need to create a new S3 bucket before you can start. It will need to be named in the following format: `[YOUR_APP_NAME]-terraform-state`
@@ -46,8 +50,8 @@ aws_secret_access_key = <YOUR_AWS_SECRET_ACCESS_KEY_HERE>
 
 #### Terraform commands
 
-```
 Possible values for [ENV]:
+```
 dev, uat, prod
 ```
 
@@ -65,4 +69,13 @@ dev, uat, prod
 ## Information
 
 * [Makefile](info/makefile.md)
-* [Generate Certificates Shell Script](info/scripts/generate_cert.md)
+* [The Docker Compose File](info/docker_compose.md)
+* [Terraform](info/terraform.md)
+* Scripts
+  * [Generate Certificates](info/scripts/generate_cert.md)
+  * [Publish Lambdas](info/scripts/publish_lambdas.md)
+  * [Terraform Init](info/scripts/terraform_init.md)
+  * [Terraform Validate](info/scripts/terraform_validate.md)
+  * [Terraform Plan](info/scripts/terraform_plan.md)
+  * [Terraform Apply](info/scripts/terraform_apply.md)
+  * [Terraform Destroy](info/scripts/terraform_destroy.md)
