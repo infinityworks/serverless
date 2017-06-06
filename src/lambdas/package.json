@@ -1,0 +1,16 @@
+{
+  "name": "serverless-lambdas",
+  "version": "1.0.0",
+  "description": "Backend components (mostly lambdas) for HTI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tamas Santa",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.6.6",
+    "request": "*",
+    "fs": "*"
+  }
+}
