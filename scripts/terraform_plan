@@ -1,0 +1,4 @@
+#!/bin/sh
+
+terraform env select $ENV
+terraform plan -var-file=env_vars/$ENV.tfvars .

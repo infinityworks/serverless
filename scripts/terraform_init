@@ -1,0 +1,4 @@
+#!/bin/sh
+
+terraform init -get=true -input=false
+terraform env new $ENV

@@ -1,0 +1,1 @@
+# Terraform Destroy Shell Script

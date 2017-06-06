@@ -1,0 +1,10 @@
+#!/bin/bash
+
+aws s3 sync build/lambda s3://serverless-lambda-bucket-$ENV\
+ --region $REGION --delete --acl private
+
+aws lambda update-function-code\
+ --region $REGION\
+ --function-name serverless_application_processor_$ENV\
+ --s3-bucket serverless-lambda-bucket-$ENV\
+ --s3-key processor.zip --publish

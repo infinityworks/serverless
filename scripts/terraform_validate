@@ -1,0 +1,4 @@
+#!/bin/bash
+
+terraform env select $ENV
+terraform validate -var-file=env_vars/$ENV.tfvars .
