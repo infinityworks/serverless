@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "serverless-terraform-state"
-    key = "serverless.tfstate"
+    bucket = "${var.app_name}-terraform-state"
+    key = "${var.app_name}.tfstate"
     region = "eu-west-2"
     shared_credentials_file = "/infrastructure/aws.credentials"
   }
