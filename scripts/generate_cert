@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+ROOT_KEY=/etc/ssl/private/rootCA.key
+ROOT_PEM=/etc/ssl/private/rootCA.pem
+CERT_KEY=/etc/ssl/private/serverless.key
+CERT_PEM=/etc/ssl/private/serverless.pem
+CERT_CHAIN_PEM=/etc/ssl/private/serverless-chain.pem
+CERT_CSR=/tmp/serverless.csr
+
+CN=$1
+
+echo "Generating certificate for CN: $1"
+
+openssl genrsa -out $CERT_KEY 2048
+openssl req -new -key $CERT_KEY -out $CERT_CSR -subj "/C=GB/S=West Yorkshire/L=Leeds/O=Infinity Works/OU=Serverless/CN=$CN"
+openssl x509 -req -in $CERT_CSR -CA $ROOT_PEM -CAkey $ROOT_KEY -CAcreateserial -out $CERT_PEM -days 500 -sha256
+cat $CERT_PEM $ROOT_PEM > $CERT_CHAIN_PEM
+
+echo "Certificate chain is available at: $CERT_CHAIN_PEM"

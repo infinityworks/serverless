@@ -1,0 +1,30 @@
+version: '3'
+services:
+  devserver:
+    ports:
+    - "8080:8080"
+    image: "node:latest"
+    volumes:
+    - ./src/client:/client
+    container_name: serverless_devserver
+    command: ["/bin/sh","-c","cd /client; npm run start-dev"]
+  api:
+    ports:
+    - "8888:8888"
+    image: "node"
+    volumes:
+    - ./infrastructure/local/api:/api
+    - ./src/lambdas:/lambdas
+    environment:
+      - DEV_MODE=true
+      - AWS_DYNAMODB_ENDPOINT=http://dynamodb:8000
+    command: "node /api/index.js"
+    container_name: serverless_api
+  dynamodb:
+    ports:
+    - "8000:8000"
+    image: "openjdk"
+    volumes:
+    - ./infrastructure/local/dynamodb:/src
+    container_name: serverless_dynamodb
+    command: ["/bin/sh","-c","cd src; java -Djava.library.path=./assets/DynamoDBLocal_lib -jar ./assets/DynamoDBLocal.jar -sharedDb"]

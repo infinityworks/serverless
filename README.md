@@ -1,17 +1,26 @@
 # Serverless Application Template
 
-## Prerequisites
+A template for project for creating new Serverless applications leveraging AWS services.
+
+## Before starting
+
+### Prerequisites
+You need these installed on your machine before you can begin.
+
 * Docker
 * Docker Compose
+* CMake
 
-## Technology Used
+### Technology Used
 * Docker, Docker Compose
 * Terraform
 * AWS Lambda, API Gateway, DynamoDB, S3, CloudFront
-* React.js
+* React.js, Redux
 * Circle CI
 
-## Architecture
+### Architecture
+Overview of how the application fits together.
 
 ![Architecture Diagram](images/hti_architecture.png)
 
+## Getting setup

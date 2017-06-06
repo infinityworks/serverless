@@ -1,0 +1,15 @@
+{
+  "name": "hti-api-gateway-mock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Tamas Santa",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "*",
+    "body-parser": "^1.4.3",
+    "express": "^4.4.5",
+    "mime": "^1.3.4"
+  }
+}
