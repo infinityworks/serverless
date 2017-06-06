@@ -11,6 +11,8 @@ You need these installed on your machine before you can begin.
 * Docker Compose
 * CMake
 
+You will also need an *AWS Account*
+
 ### Technology Used
 * Docker, Docker Compose
 * Terraform
