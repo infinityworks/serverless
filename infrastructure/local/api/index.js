@@ -9,8 +9,8 @@ var bodyParser = require('body-parser');
 var app = express();
 
 // Enable SSL termination
-var privateKey  = fs.readFileSync(path.join(__dirname, '../config/pki/rootCA.key'), 'utf8');
-var certificate = fs.readFileSync(path.join(__dirname, '../config/pki/rootCA.pem'), 'utf8');
+var privateKey  = fs.readFileSync(path.join(__dirname, '../config/pki/serverless.key'), 'utf8');
+var certificate = fs.readFileSync(path.join(__dirname, '../config/pki/serverless.pem'), 'utf8');
 var credentials = {key: privateKey, cert: certificate};
 var https = require('https');
 var httpsServer = https.createServer(credentials, app);

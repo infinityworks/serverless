@@ -2,8 +2,8 @@
 
 set -e
 
-ROOT_KEY=/etc/ssl/private/rootCA.key
-ROOT_PEM=/etc/ssl/private/rootCA.pem
+ROOT_KEY=/etc/ssl/private/ca.key.pem
+ROOT_PEM=/etc/ssl/private/ca.cert.pem
 CERT_KEY=/etc/ssl/private/serverless.key
 CERT_PEM=/etc/ssl/private/serverless.pem
 CERT_CHAIN_PEM=/etc/ssl/private/serverless-chain.pem

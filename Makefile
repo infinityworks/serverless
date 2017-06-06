@@ -14,7 +14,7 @@ env ?= dev
 # =======================================================
 
 create-cert:
-	docker run --rm\
+	docker run --rm -it\
 	 -v `pwd`/infrastructure/local/pki/:/etc/ssl/private/\
 	 -v `pwd`/scripts/generate_cert:/generate\
 	 $(NODE_CONTAINER)\
