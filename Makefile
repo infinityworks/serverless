@@ -120,24 +120,24 @@ init-client:
 
 build-client:
 	docker run --rm\
-	-w /client\
-	-v `pwd`/src/client:/client\
-	$(NODE_CONTAINER)\
-	/bin/sh -c "npm run build-dev"
+	 -w /client\
+	 -v `pwd`/src/client:/client\
+	 $(NODE_CONTAINER)\
+	 /bin/sh -c "npm run build-dev"
 
 test-client:
 	docker run --rm\
-	-w /client\
-	-v `pwd`/src/client:/client\
-	$(NODE_CONTAINER)\
-	/bin/sh -c "npm test"
+	 -w /client\
+	 -v `pwd`/src/client:/client\
+	 $(NODE_CONTAINER)\
+	 /bin/sh -c "npm test"
 
 lint-client:
 	docker run --rm\
-	-w /client\
-	-v `pwd`/src/client:/client\
-	$(NODE_CONTAINER)\
-	/bin/sh -c "npm run lint"
+	 -w /client\
+	 -v `pwd`/src/client:/client\
+	 $(NODE_CONTAINER)\
+	 /bin/sh -c "npm run lint"
 
 
 
@@ -147,7 +147,7 @@ lint-client:
 
 init-lambdas:
 	docker run --rm\
-	-w /lambdas\
-	-v `pwd`/src/lambdas:/lambdas\
-	$(NODE_CONTAINER)\
-	/bin/sh -c "npm install"
+	 -w /lambdas\
+	 -v `pwd`/src/lambdas:/lambdas\
+	 $(NODE_CONTAINER)\
+	 /bin/sh -c "npm install"
