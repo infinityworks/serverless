@@ -1,3 +1,3 @@
 # Terraform Validate Shell Script
 
-[](../../scripts/terraform_validate)
+[terraform_validate](../../scripts/terraform_validate)

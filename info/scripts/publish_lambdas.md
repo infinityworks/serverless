@@ -1,3 +1,3 @@
 # Publish Lambdas Shell Script
 
-[](../../scripts/publish_lambdas)
+[publish_lambdas](../../scripts/publish_lambdas)

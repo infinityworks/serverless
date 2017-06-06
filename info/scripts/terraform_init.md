@@ -1,3 +1,3 @@
 # Terraform Init Shell Script
 
-[](../../scripts/terraform_init)
+[terraform_init](../../scripts/terraform_init)

@@ -1,3 +1,3 @@
 # Terraform Plan Shell Script
 
-[](../../scripts/terraform_plan)
+[terraform_plan](../../scripts/terraform_plan)

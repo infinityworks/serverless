@@ -1,3 +1,3 @@
 # Terraform Destroy Shell Script
 
-[](../../scripts/terraform_destroy)
+[terraform_destroy](../../scripts/terraform_destroy)

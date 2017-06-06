@@ -1,3 +1,3 @@
 # Terraform Apply Shell Script
 
-[](../../scripts/terraform_apply)
+[terraform_apply](../../scripts/terraform_apply)
