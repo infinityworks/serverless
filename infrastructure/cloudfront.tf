@@ -17,6 +17,17 @@ resource "aws_cloudfront_distribution" "serverless_cloudfront" {
         origin_ssl_protocols   = ["TLSv1.1", "TLSv1.2"]
       }
     },
+    {
+      domain_name = "${aws_api_gateway_rest_api.serverless_gateway.id}.execute-api.${var.region}.amazonaws.com"
+      origin_id = "ApiGateway"
+
+      custom_origin_config = {
+        http_port              = "80"
+        https_port             = "443"
+        origin_protocol_policy = "https-only"
+        origin_ssl_protocols   = ["TLSv1.1", "TLSv1.2"]
+      }
+    },
   ]
 
   enabled             = true
@@ -43,6 +54,29 @@ resource "aws_cloudfront_distribution" "serverless_cloudfront" {
     default_ttl            = 3600
     max_ttl                = 86400
   }
+
+  cache_behavior = [
+    {
+      allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+      cached_methods   = ["GET", "HEAD"]
+      target_origin_id = "ApiGateway"
+
+      forwarded_values = {
+        query_string = false
+        headers      = []
+
+        cookies = {
+          forward = "none"
+        }
+      }
+
+      path_pattern           = "/api/submission/*"
+      viewer_protocol_policy = "allow-all"
+      min_ttl                = 0
+      default_ttl            = 0
+      max_ttl                = 0
+    }
+  ]
 
   restrictions = {
     geo_restriction = {
