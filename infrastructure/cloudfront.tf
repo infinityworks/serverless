@@ -1,4 +1,8 @@
 resource "aws_cloudfront_distribution" "serverless_cloudfront" {
+  depends_on = [
+      "aws_s3_bucket.serverless_site_bucket"
+  ]
+
   comment = "${var.env} - ${var.app_name}"
 
   origin = [
@@ -24,7 +28,7 @@ resource "aws_cloudfront_distribution" "serverless_cloudfront" {
   default_cache_behavior = {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods   = ["GET", "HEAD"]
-    target_origin_id = "AppBucket"
+    target_origin_id = "SiteBucket"
 
     forwarded_values = {
       query_string = false
@@ -48,9 +52,12 @@ resource "aws_cloudfront_distribution" "serverless_cloudfront" {
   }
 
   viewer_certificate = {
-    acm_certificate_arn      = "${var.acm_certificate_arn}"
-    minimum_protocol_version = "TLSv1"
-    ssl_support_method       = "sni-only"
+    cloudfront_default_certificate = true
+
+    # Setup AWS Certificate Manager to use your own TLS certificate.
+    # acm_certificate_arn      = "${var.acm_certificate_arn}"
+    # minimum_protocol_version = "TLSv1"
+    # ssl_support_method       = "sni-only"
   }
 
   tags {

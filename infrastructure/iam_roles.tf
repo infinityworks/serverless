@@ -49,7 +49,7 @@ resource "aws_iam_role_policy" "lambda_policy" {
                 "dynamodb:*"
             ],
             "Resource": [
-                "arn:aws:dynamodb:${var.region}:${var.account_id}:table/${var.env}-submissions"
+                "arn:aws:dynamodb:${var.region}::table/${var.env}-submissions"
             ]
         }
     ]

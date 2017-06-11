@@ -1,6 +1,10 @@
-variable "acm_certificate_arn" {}
-variable "cloudfront_alias" {}
-variable "account_id" {}
+variable "acm_certificate_arn" {
+  default = ""
+}
+
+variable "cloudfront_alias" {
+  default = "serverless.infinityworks.com"
+}
 
 variable "env" {
   default = "dev"
