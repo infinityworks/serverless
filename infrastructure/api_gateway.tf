@@ -8,6 +8,10 @@ resource "aws_api_gateway_account" "serverless_gateway_account" {
 }
 
 resource "aws_api_gateway_deployment" "serverless_application_deployment" {
+  depends_on = [
+    "aws_api_gateway_resource.serverless_gateway_submission_resource"
+  ]
+
   rest_api_id = "${aws_api_gateway_rest_api.serverless_gateway.id}"
   stage_name = "api"
 }
