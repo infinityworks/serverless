@@ -97,14 +97,14 @@ dev, uat, prod
 
 ## Information
 
-* [Makefile](info/makefile.md)
-* [The Docker Compose File](info/docker_compose.md)
-* [Terraform](info/terraform.md)
+* [Makefile](docs/makefile.md)
+* [The Docker Compose File](docs/docker_compose.md)
+* [Terraform](docs/terraform.md)
 * Scripts
-  * [Generate Certificates](info/scripts/generate_cert.md)
-  * [Publish Lambdas](info/scripts/publish_lambdas.md)
-  * [Terraform Init](info/scripts/terraform_init.md)
-  * [Terraform Validate](info/scripts/terraform_validate.md)
-  * [Terraform Plan](info/scripts/terraform_plan.md)
-  * [Terraform Apply](info/scripts/terraform_apply.md)
-  * [Terraform Destroy](info/scripts/terraform_destroy.md)
+  * [Generate Certificates](docs/scripts/generate_cert.md)
+  * [Publish Lambdas](docs/scripts/publish_lambdas.md)
+  * [Terraform Init](docs/scripts/terraform_init.md)
+  * [Terraform Validate](docs/scripts/terraform_validate.md)
+  * [Terraform Plan](docs/scripts/terraform_plan.md)
+  * [Terraform Apply](docs/scripts/terraform_apply.md)
+  * [Terraform Destroy](docs/scripts/terraform_destroy.md)
