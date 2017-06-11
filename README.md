@@ -29,7 +29,11 @@ Overview of how the application fits together.
 
 ### Building the app
 
+You can build the app locally by running `make build`. Make sure to run `make init` on first-time setup, as this will install all required node package dependencies for both the client and the lambdas.
+
 ### Running it locally
+
+To run the whole stack locally, including the local API mock and DynamoDB instance, run the `docker-compose up` command. This will run a webpack dev server for the client application, a simple express application for the API and a DynamoDB instance.
 
 ### Running terraform
 
@@ -41,13 +45,33 @@ Before you can provision your infrastructure, there are (unfortunately) some man
 * You will need to create a new S3 bucket before you can start. It will need to be named in the following format: `[YOUR_APP_NAME]-terraform-state`
     * This is used to store the current state of our resources provisioned with Terraform.
 * Edit the `infrastructure/variables.tf` file so the `app_name` variable in Terraform is set to the same name.
+* Edit the `infrastructure/main.tf` file and rename the s3 backend bucket name to the name of the bucket you created in the AWS Console. The config should look something like this:
+
+```
+terraform {
+  backend "s3" {
+    bucket = "[YOUR_APP_NAME]-terraform-state"
+    key = "[YOUR_APP_NAME]"
+    region = "eu-west-2"
+    shared_credentials_file = "/infrastructure/aws.credentials"
+  }
+}
+
+provider "aws" {
+  shared_credentials_file = "/infrastructure/aws.credentials"
+  profile = "default"
+  region = "${var.region}"
+}
+
+```
+
 * Edit the default value for `app_name` in the Makefile to the same name, this is so Circle CI knows which S3 Buckets to use.
 * Create the `infrastructure/aws.credentials` file with the following format:
 
 ```
 [default]
-aws_access_key_id = <YOUR_AWS_ACCESS_KEY_ID_HERE>
-aws_secret_access_key = <YOUR_AWS_SECRET_ACCESS_KEY_HERE>
+aws_access_key_id = [YOUR_AWS_ACCESS_KEY_ID_HERE]
+aws_secret_access_key = [YOUR_AWS_SECRET_ACCESS_KEY_HERE]
 ```
 
 * You can get your credentials by downloading them from IAM in the AWS console
