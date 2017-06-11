@@ -33,10 +33,15 @@ Overview of how the application fits together.
 
 ### Running terraform
 
+#### Initial setup on the AWS Console
+
+Before you can provision your infrastructure, there are (unfortunately) some manual tasks to perform on the AWS Console.
+
 * Create an account on [AWS](https://aws.amazon.com/console/)
-  * You will need to create a new S3 bucket before you can start. It will need to be named in the following format: `[YOUR_APP_NAME]-terraform-state`
+* You will need to create a new S3 bucket before you can start. It will need to be named in the following format: `[YOUR_APP_NAME]-terraform-state`
     * This is used to store the current state of our resources provisioned with Terraform.
-    * You'll also need to edit the `infrastructure/variables.tf` file so the `app_name` variable in Terraform is set to the same name.
+* Edit the `infrastructure/variables.tf` file so the `app_name` variable in Terraform is set to the same name.
+* Edit the default value for `app_name` in the Makefile to the same name, this is so Circle CI knows which S3 Buckets to use.
 * Create the `infrastructure/aws.credentials` file with the following format:
 
 ```
