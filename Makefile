@@ -163,7 +163,7 @@ init-lambdas: init-processor
 
 init-processor:
 	docker run --rm\
-	 -w /lambdas\
+	 -w /processor\
 	 -v `pwd`/src/lambdas/processor:/processor\
 	 $(NODE_CONTAINER)\
 	 /bin/sh -c "npm install"
