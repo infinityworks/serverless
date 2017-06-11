@@ -3,7 +3,7 @@
 # =======================================================
 
 TERRAFORM_CONTAINER=hashicorp/terraform:0.9.2
-NODE_CONTAINER=node:latest
+NODE_CONTAINER=node:8.1.0
 region ?= eu-west-2
 env ?= dev
 app_name ?= serverless
