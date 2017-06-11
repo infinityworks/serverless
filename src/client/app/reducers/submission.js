@@ -1,8 +1,8 @@
-import * as ActionTypes from '../actions/application';
+import * as ActionTypes from '../actions';
 
 const initialState = { fields: {} };
 
-const application = (state = initialState, action) => {
+const submission = (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.UPDATE_FIELD:
       // clone our immutable state
@@ -36,4 +36,4 @@ const application = (state = initialState, action) => {
   return state;
 };
 
-export default application;
+export default submission;

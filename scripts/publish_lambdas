@@ -1,6 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
-aws s3 sync build/lambda s3://$(ENV)-$(APP_NAME)-lambda-bucket\
+mkdir -p /publish
+zip -r /lambdas/processor /publish/processor.zip
+
+aws s3 sync /artifacts s3://$(ENV)-$(APP_NAME)-lambda-bucket\
  --region $REGION --delete --acl private
 
 aws lambda update-function-code\

@@ -1,0 +1,44 @@
+machine:
+  pre:
+    - sudo curl -L -o /usr/bin/docker 'https://s3-external-1.amazonaws.com/circle-downloads/docker-1.9.1-circleci'
+    - sudo chmod 0755 /usr/bin/docker
+  services:
+    - docker
+  environment:
+    _JAVA_OPTIONS: "-Xms512m -Xmx1024m"
+    DEV_MODE: "true"
+    AWS_DYNAMODB_ENDPOINT: "http://localhost:8000"
+
+  java:
+    version: openjdk7
+  post:
+    - curl -k -L -o dynamodb-local.tgz http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest.tar.gz
+    - tar -xzf dynamodb-local.tgz
+    - java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb:
+        background: true
+
+dependencies:
+  cache_directories:
+    - "infrastructure/local/api/node_modules"
+    - "src/client/node_modules"
+    - "src/lambdas/node_modules"
+  post:
+    - make init
+
+test:
+  override:
+    - make test
+
+deployment:
+  prod:
+    branch: master
+    commands:
+      - make ci-build
+      - make ci-publish-site env=prod
+      - make ci-publish-lambdas env=prod
+  dev:
+    branch: dev
+    commands:
+      - make ci-build
+      - make ci-publish-site env=dev
+      - make ci-publish-lambdas env=dev

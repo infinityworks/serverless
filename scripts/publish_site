@@ -1,0 +1,4 @@
+#!/bin/sh
+
+aws s3 sync /client/static s3://$(ENV)-$(APP_NAME)-site-bucket\
+ --region $REGION --delete --acl public-read

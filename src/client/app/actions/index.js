@@ -25,7 +25,7 @@ export const postFormSuccess = (result) => ({
 });
 
 
-export const sendApplication = data => dispatch => {
+export const sendSubmission = data => dispatch => {
 
   let domain = getConfig().apiDomain;
   let opts = {
@@ -39,7 +39,7 @@ export const sendApplication = data => dispatch => {
 
   dispatch(postForm(data));
 
-  return fetch(`${domain}application/`, opts)
+  return fetch(`${domain}submission/`, opts)
     .then(response => {
       if (response.status >= 400) {
         dispatch(postFormFailure('Bad response from server'));

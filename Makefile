@@ -96,6 +96,18 @@ ci-build:
 	 $(NODE_CONTAINER)\
 	 /bin/sh -c "npm run build-prod"
 
+ci-publish-site:
+	docker run --rm\
+	 --entrypoint "/bin/sh"
+	 -w /scripts\
+	 -v `pwd`/scripts:/scripts
+	 -v `pwd`/src/client:/client\
+	 -e "ENV=$(env)"\
+	 -e "REGION=$(region)"\
+	 -e "APP_NAME=$(app_name)"\
+	 $(NODE_CONTAINER)\
+	 publish_site
+
 ci-publish-lambdas:
 	docker run --rm\
 	 --entrypoint "/bin/sh"
@@ -106,7 +118,7 @@ ci-publish-lambdas:
 	 -e "REGION=$(region)"\
 	 -e "APP_NAME=$(app_name)"\
 	 $(NODE_CONTAINER)\
-	 /scripts/publish_lambdas
+	 publish_lambdas
 
 
 # =======================================================
@@ -147,9 +159,11 @@ lint-client:
 # Lambda Targets
 # =======================================================
 
-init-lambdas:
+init-lambdas: init-processor
+
+init-processor:
 	docker run --rm\
 	 -w /lambdas\
-	 -v `pwd`/src/lambdas:/lambdas\
+	 -v `pwd`/src/lambdas/processor:/processor\
 	 $(NODE_CONTAINER)\
 	 /bin/sh -c "npm install"

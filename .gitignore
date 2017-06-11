@@ -3,3 +3,5 @@ node_modules
 aws.credentials
 ca.srl
 .terraform
+main.css
+app.js

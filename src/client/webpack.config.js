@@ -14,7 +14,7 @@ var plugins = [
   new webpack.optimize.OccurenceOrderPlugin(),
   new webpack.NoErrorsPlugin(),
   new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-  new ExtractTextPlugin('hti.css'),
+  new ExtractTextPlugin('main.css'),
   new webpack.ProvidePlugin({
     'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
   }),
