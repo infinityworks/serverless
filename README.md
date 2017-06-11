@@ -1,5 +1,7 @@
 # Serverless Application Template
 
+[![CircleCI](https://circleci.com/gh/infinityworksltd/serverless.svg?style=svg)](https://circleci.com/gh/infinityworksltd/serverless)
+
 A template project for creating new Serverless applications leveraging AWS services.
 
 ## Before starting
