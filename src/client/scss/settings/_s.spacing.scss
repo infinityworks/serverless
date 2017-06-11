@@ -1,0 +1,12 @@
+/**
+ * We work these out for you...
+ */
+
+$base-spacing-unit:     8px!default;
+$double-spacing-unit:   floor($base-spacing-unit * 2)!default;
+$triple-spacing-unit:   floor($base-spacing-unit * 3)!default;
+$half-spacing-unit:     floor($base-spacing-unit / 2)!default;
+$third-spacing-unit:    floor($base-spacing-unit / 3)!default;
+$unitless-line-height:  $base-line-height / $base-font-size !default;
+
+$border-radius: 5px;

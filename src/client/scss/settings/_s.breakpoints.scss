@@ -1,0 +1,9 @@
+@import "~breakpoint-sass/stylesheets/breakpoint";
+
+// Breakpoints are styled as mobile-first.
+// Mobile is the default styles
+// Alpha is tablet
+// Beta is desktop
+
+$breakpoint-alpha: 640px;
+$breakpoint-beta: 1060px;

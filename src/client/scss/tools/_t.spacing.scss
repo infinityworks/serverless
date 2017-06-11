@@ -1,0 +1,31 @@
+@mixin spacing-modifier-prefix($prefix, $name, $size) {
+  $position-list: 'top' 'right' 'bottom' 'left';
+
+  .push#{$prefix}__#{$name} { margin: $size; }
+  .push#{$prefix}__#{$name}--ends { margin-top: $size; margin-bottom: $size; }
+  .push#{$prefix}__#{$name}--sides { margin-left: $size; margin-right: $size; }
+
+  @each $position in $position-list {
+    .push#{$prefix}__#{$name}--#{$position} { margin-#{$position}: $size; }
+  }
+
+  .soft#{$prefix}__#{$name} { padding: $size; }
+  .soft#{$prefix}__#{$name}--ends { padding-top: $size; padding-bottom: $size; }
+  .soft#{$prefix}__#{$name}--sides { padding-left: $size; padding-right: $size; }
+
+  @each $position in $position-list {
+    .soft#{$prefix}__#{$name}--#{$position} { padding-#{$position}: $size; }
+  }
+}
+
+@mixin spacing-modifier($name, $size) {
+  @include spacing-modifier-prefix('', $name, $size);
+
+  @include breakpoint($breakpoint-alpha) {
+    @include spacing-modifier-prefix('--alpha', $name, $size);
+  }
+
+  @include breakpoint($breakpoint-beta) {
+    @include spacing-modifier-prefix('--beta', $name, $size);
+  }
+}

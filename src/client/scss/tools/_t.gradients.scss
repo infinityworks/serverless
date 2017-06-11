@@ -1,0 +1,89 @@
+/**
+ * A simple top-to-bottom linear gradient with fallback color of our choice.
+ */
+@mixin linear-gradient($start-color, $stop-color, $fallback-color){
+    background-color:$fallback-color; /* Old browsers */
+    background-image:-moz-linear-gradient(top, $start-color 0%, $stop-color 100%); /* FF3.6+ */
+    background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,$start-color), color-stop(100%,$stop-color)); /* Chrome,Safari4+ */
+    background-image:-webkit-linear-gradient(top, $start-color 0%,$stop-color 100%); /* Chrome10+,Safari5.1+ */
+    background-image:-o-linear-gradient(top, $start-color 0%,$stop-color 100%); /* Opera 11.10+ */
+    background-image:-ms-linear-gradient(top, $start-color 0%,$stop-color 100%); /* IE10+ */
+    background-image:linear-gradient(to bottom, $start-color 0%,$stop-color 100%); /* W3C */
+}
+
+
+/**
+ * A simple left-to-right linear gradient with fallback color of our choice.
+ */
+@mixin linear-horizontal-gradient($start-color, $stop-color, $fallback-color){
+    background-color:$fallback-color; /* Old browsers */
+    background-image:-moz-linear-gradient(left, $start-color 0%, $stop-color 100%); /* FF3.6+ */
+    background-image:-webkit-gradient(linear, left top, right top, color-stop(0%,$start-color), color-stop(100%,$stop-color)); /* Chrome,Safari4+ */
+    background-image:-webkit-linear-gradient(left, $start-color 0%,$stop-color 100%); /* Chrome10+,Safari5.1+ */
+    background-image:-o-linear-gradient(left, $start-color 0%,$stop-color 100%); /* Opera 11.10+ */
+    background-image:-ms-linear-gradient(left, $start-color 0%,$stop-color 100%); /* IE10+ */
+    background-image:linear-gradient(to right, $start-color 0%,$stop-color 100%); /* W3C */
+}
+
+
+/**
+ * Very specific but common use-cases; a two part linear gradient which starts
+ * at a specified color, ends halfway at a specified color, resumes halfway at
+ * a specified color and terminates at a specified color. Also with fallback.
+ *
+ * Example usage is on market table headers:
+ *
+   `@include linear-split-gradient(#fff, #fff, #f5f7fa, #ebeff5, #ebeff5);`
+ *
+ * This gives us a nice glossy looking background.
+ */
+@mixin linear-split-gradient($begin-start-color, $end-start-color, $begin-stop-color, $end-stop-color, $fallback-color, $split-percent: 50%){
+    background-color:$fallback-color; /* Old browsers */
+    background-image:-moz-linear-gradient(top, $begin-start-color 0%, $end-start-color $split-percent, $begin-stop-color $split-percent, $end-stop-color 100%); /* FF3.6+ */
+    background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,$begin-start-color), color-stop($split-percent,$end-start-color), color-stop($split-percent,$begin-stop-color), color-stop(100%,$end-stop-color)); /* Chrome,Safari4+ */
+    background-image:-webkit-linear-gradient(top, $begin-start-color 0%,$end-start-color $split-percent,$begin-stop-color $split-percent,$end-stop-color 100%); /* Chrome10+,Safari5.1+ */
+    background-image:-o-linear-gradient(top, $begin-start-color 0%,$end-start-color $split-percent,$begin-stop-color $split-percent,$end-stop-color 100%); /* Opera 11.10+ */
+    background-image:-ms-linear-gradient(top, $begin-start-color 0%,$end-start-color $split-percent,$begin-stop-color $split-percent,$end-stop-color 100%); /* IE10+ */
+    background-image:linear-gradient(to bottom, $begin-start-color 0%,$end-start-color $split-percent,$begin-stop-color $split-percent,$end-stop-color 100%); /* W3C */
+}
+
+
+
+/**
+ *
+ */
+@mixin linear-split-horizontal-gradient($begin-start-color, $end-start-color, $begin-stop-color, $end-stop-color, $fallback-color, $split-percent: 50%) {
+  background-color:$fallback-color; /* Old browsers */
+  background-image:-moz-linear-gradient(left, $begin-start-color 0%, $end-start-color $split-percent, $begin-stop-color $split-percent, $end-stop-color 100%); /* FF3.6+ */
+  background-image:-webkit-gradient(linear, left top, right top, color-stop(0%,$begin-start-color), color-stop($split-percent,$end-start-color), color-stop($split-percent,$begin-stop-color), color-stop(100%,$end-stop-color)); /* Chrome,Safari4+ */
+  background-image:-webkit-linear-gradient(left, $begin-start-color 0%,$end-start-color $split-percent,$begin-stop-color $split-percent,$end-stop-color 100%); /* Chrome10+,Safari5.1+ */
+  background-image:-o-linear-gradient(left, $begin-start-color 0%,$end-start-color $split-percent,$begin-stop-color $split-percent,$end-stop-color 100%); /* Opera 11.10+ */
+  background-image:-ms-linear-gradient(left, $begin-start-color 0%,$end-start-color $split-percent,$begin-stop-color $split-percent,$end-stop-color 100%); /* IE10+ */
+  background-image:linear-gradient(to right, $begin-start-color 0%,$end-start-color $split-percent,$begin-stop-color $split-percent,$end-stop-color 100%); /* W3C */
+}
+
+/**
+ * A simple centre-out radial gradient with fallback color of our choice.
+ */
+@mixin radial-gradient($start-color, $stop-color, $fallback-color){
+    background-color:$fallback-color; /* Old browsers */
+    background-image:-moz-radial-gradient(center, ellipse cover, $start-color 0%, $stop-color 100%); /* FF3.6+ */
+    background-image:-webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$start-color), color-stop(100%,$stop-color)); /* Chrome,Safari4+ */
+    background-image:-webkit-radial-gradient(center, ellipse cover, $start-color 0%,$stop-color 100%); /* Chrome10+,Safari5.1+ */
+    background-image:-o-radial-gradient(center, ellipse cover, $start-color 0%,$stop-color 100%); /* Opera 12+ */
+    background-image:-ms-radial-gradient(center, ellipse cover, $start-color 0%,$stop-color 100%); /* IE10+ */
+    background-image:radial-gradient(ellipse at center, $start-color 0%,$stop-color 100%); /* W3C */
+}
+
+/**
+ * A centre-out radial gradient with an intermediate color and fallback color of our choice.
+ */
+@mixin three-step-radial-gradient($start-color, $middle-color, $stop-color, $fallback-color){
+    background-color:$fallback-color; /* Old browsers */
+    background-image:-moz-radial-gradient(center, ellipse cover, $start-color 0%, $middle-color 50%, $stop-color 100%); /* FF3.6+ */
+    background-image:-webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$start-color), color-stop(50%,$middle-color), color-stop(100%,$stop-color)); /* Chrome,Safari4+ */
+    background-image:-webkit-radial-gradient(center, ellipse cover, $start-color 0%,$middle-color 50%,$stop-color 100%); /* Chrome10+,Safari5.1+ */
+    background-image:-o-radial-gradient(center, ellipse cover, $start-color 0%,$middle-color 50%,$stop-color 100%); /* Opera 12+ */
+    background-image:-ms-radial-gradient(center, ellipse cover, $start-color 0%,$middle-color 50%,$stop-color 100%); /* IE10+ */
+    background-image:radial-gradient(ellipse at center, $start-color 0%,$middle-color 50%,$stop-color 100%); /* W3C */
+}
