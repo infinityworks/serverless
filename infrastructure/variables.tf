@@ -1,3 +1,7 @@
+variable "acm_certificate_arn" {}
+variable "cloudfront_alias" {}
+variable "account_id" {}
+
 variable "env" {
   default = "dev"
 }
@@ -7,5 +11,5 @@ variable "region" {
 }
 
 variable "app_name" {
-  default = "infinityworks"
+  default = "serverless"
 }
