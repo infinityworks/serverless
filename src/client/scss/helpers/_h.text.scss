@@ -1,0 +1,31 @@
+.text--small {
+  @include font-size($base-font-size * 0.8);
+}
+
+.text--large {
+  @include font-size($base-font-size * 1.1);
+}
+
+.text--center {
+  text-align: center;
+}
+
+.text--underline {
+  text-decoration: underline;
+}
+
+.text--bold {
+  font-weight: bold;
+}
+
+.text--light {
+  font-weight: normal;
+}
+
+.text--left {
+  text-align: left;
+}
+
+.text--right {
+  text-align: right;
+}

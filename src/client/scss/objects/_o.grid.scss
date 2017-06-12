@@ -1,0 +1,43 @@
+.flexbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.flexbox--space-between {
+  justify-content: space-between;
+}
+
+.flexbox--align-start {
+  align-items: flex-start;
+}
+
+.flexbox--align-end {
+  align-items: flex-end;
+}
+
+.one-whole { width: 100%; }
+.one-half { width: 50%; }
+.one-third { width: 33.333%; }
+.two-thirds { width: 66.667%; }
+.one-quarter { width: 25%; }
+.three-quarters { width: 75%; }
+
+@include breakpoint($breakpoint-alpha) {
+  .one-whole--alpha { width: 100%; }
+  .one-half--alpha { width: 50%; }
+  .one-third--alpha { width: 33.333%; }
+  .two-thirds--alpha { width: 66.667%; }
+  .one-quarter--alpha { width: 25%; }
+  .three-quarters--alpha { width: 75%; }
+}
+
+@include breakpoint($breakpoint-beta) {
+  .one-whole--beta { width: 100%; }
+  .one-half--beta { width: 50%; }
+  .one-third--beta { width: 33.333%; }
+  .two-thirds--beta { width: 66.667%; }
+  .one-quarter--beta { width: 25%; }
+  .three-quarters--beta { width: 75%; }
+}

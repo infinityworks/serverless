@@ -1,0 +1,19 @@
+.page {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content {
+  @extend .cf;
+  max-width: $breakpoint-beta;
+  padding: ($base-spacing-unit * 4) 0;
+  margin: 0 auto;
+}
+
+.container {
+  @extend .cf;
+  padding: $base-spacing-unit * 4;
+}

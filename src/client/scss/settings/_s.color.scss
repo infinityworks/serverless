@@ -1,4 +1,8 @@
 /* Primary Colours */
+$iw-orange: #e35205;
+$iw-teal: #00b2a9;
+$iw-dark-grey: #333f48;
+$iw-light-grey: #efefef;
 $background-grey: #e6ebee;
 
 /* Other Colours */
@@ -11,5 +15,5 @@ $bkg-grey-03: #f2f2f2; /* sub-nav (mobile), tab (mobile), table key */
 $bkg-grey-04: #e1e4e3; /* section heading (mobile), banner text gradient (mobile) */
 $bkg-grey-05: #f9f9f9; /* banner text gradient (mobile) */
 
-$base-text-color:       $black     !default;
+$base-text-color:       $iw-dark-grey     !default;
 $base-background-color: $background-grey    !default;

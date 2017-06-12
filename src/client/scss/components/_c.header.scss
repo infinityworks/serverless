@@ -1,0 +1,33 @@
+header {
+  background: $iw-dark-grey;
+  color: $white;
+}
+
+.header__logo {
+  opacity: 1;
+  transition: opacity ease .3s;
+  width: 240px;
+  margin: 0 auto;
+  padding: 0;
+  height: 23px;
+  text-indent: -9999px;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-image: url(/img/site-logo-white.svg);
+  background-size: 240px 23px;
+}
+
+header .content {
+  padding: ($base-spacing-unit * 2);
+}
+
+header .westfield-logo {
+  padding: ($base-spacing-unit * 2) 0;
+}
+
+@include breakpoint($breakpoint-beta) {
+  header .content {
+    padding: ($base-spacing-unit * 2) 0;
+  }
+}

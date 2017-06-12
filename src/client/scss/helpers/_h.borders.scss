@@ -1,0 +1,17 @@
+.brt--half {
+  border-top-left-radius: $base-spacing-unit / 2;
+  border-top-right-radius: $base-spacing-unit / 2;
+}
+
+.brb--half {
+  border-bottom-left-radius: $base-spacing-unit / 2;
+  border-bottom-right-radius: $base-spacing-unit / 2;
+}
+
+.bt--grey {
+  border-top: 1px solid $iw-light-grey;
+}
+
+.bb--grey {
+  border-bottom: 1px solid $iw-light-grey;
+}

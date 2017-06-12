@@ -1,0 +1,30 @@
+@include spacing-modifier('base', $base-spacing-unit);
+@include spacing-modifier('double', $double-spacing-unit);
+@include spacing-modifier('triple', $triple-spacing-unit);
+@include spacing-modifier('quad', $base-spacing-unit * 4);
+@include spacing-modifier('eight', $base-spacing-unit * 8);
+@include spacing-modifier('half', $half-spacing-unit);
+@include spacing-modifier('third', $third-spacing-unit);
+
+/**
+ * Get rid of margins.
+ */
+.flush          { margin:0!important; }
+.flush--ends    { margin-top:0!important; margin-bottom:0!important; }
+.flush--sides   { margin-right:0!important; margin-left:0!important; }
+.flush--top     { margin-top:0!important; }
+.flush--right   { margin-right:0!important; }
+.flush--bottom  { margin-bottom:0!important; }
+.flush--left    { margin-left:0!important; }
+
+
+/**
+ * Get rid of paddings.
+ */
+.hard           { padding:0; }
+.hard--ends     { padding-top:0; padding-bottom:0; }
+.hard--sides    { padding-right:0; padding-left:0; }
+.hard--top      { padding-top:0; }
+.hard--right    { padding-right:0; }
+.hard--bottom   { padding-bottom:0; }
+.hard--left     { padding-left:0; }

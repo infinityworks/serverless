@@ -1,0 +1,59 @@
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.fr {
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.valign-top {
+  vertical-align: top;
+}
+
+.display--alpha {
+  display: none;
+}
+
+.hidden--alpha {
+  display: block;
+}
+
+@include breakpoint($breakpoint-alpha) {
+  .display--alpha {
+    display: block;
+  }
+
+  .hidden--alpha {
+    display: none;
+  }
+}
+
+.display--beta {
+  display: none;
+}
+
+.hidden--beta {
+  display: block;
+}
+
+@include breakpoint($breakpoint-beta) {
+  .display--beta {
+    display: block;
+  }
+
+  .hidden--beta {
+    display: none;
+  }
+}

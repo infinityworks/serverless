@@ -1,0 +1,27 @@
+footer {
+  background: $iw-dark-grey;
+  color: $white;
+
+  .content {
+    padding: $base-spacing-unit 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: $white;
+    border-bottom: 1px solid $white;
+    transition: border-bottom .5s;
+    font-size: 14px;
+
+    &:hover {
+      text-decoration: none;
+      border-bottom: 1px solid $iw-orange;
+      color: $white;
+    }
+  }
+
+  .heart {
+    font-size: 24px;
+    color: $iw-orange;
+  }
+}

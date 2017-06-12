@@ -1,4 +1,6 @@
 @import "~normalize.scss/normalize";
+@import url(https://fast.fonts.net/t/1.css?apiType=css&projectid=bc2233f7-c75a-49ff-961e-ad659e49e0a3);
+
 
 html {
   font:#{($base-font-size / 16px)*1em}/#{$unitless-line-height} sans-serif;
@@ -12,12 +14,20 @@ html {
       -ms-text-size-adjust:100%;
 }
 
+body {
+  font-family: "Avenir LT W01_55 Roman1475520", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
 a {
   font-weight: bold;
+  text-decoration: none;
+  color: $iw-teal;
+  transition: color .5s;
 
   &:hover {
-    cursor: pointer;
-    text-decoration: underline;
+    text-decoration: none;
+    color: $iw-orange;
   }
 }
 
