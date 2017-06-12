@@ -9,8 +9,6 @@
   "author": "Tamas Santa",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.6.6",
-    "request": "*",
-    "fs": "*"
+    "aws-sdk": "^2.6.6"
   }
 }
