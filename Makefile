@@ -3,7 +3,7 @@
 # =======================================================
 
 TERRAFORM_CONTAINER=hashicorp/terraform:0.9.2
-NODE_CONTAINER=circleci/node:8
+NODE_CONTAINER=node:6.11.0
 region ?= eu-west-2
 env ?= dev
 app_name ?= serverless
