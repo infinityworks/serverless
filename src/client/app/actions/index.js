@@ -59,5 +59,8 @@ export const sendSubmission = data => dispatch => {
       }
 
       dispatch(postFormSuccess(result));
+    })
+    .catch(error => {
+      dispatch(postFormFailure(error.message));
     });
 };

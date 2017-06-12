@@ -1,0 +1,21 @@
+.iw-slash-orange {
+  position: absolute;
+  right: -15%;
+  bottom: 10%;
+  width: 75%;
+  height: 50px;
+  background: $iw-orange;
+  transform: rotateZ(-45deg);
+  z-index: -1;
+}
+
+.iw-slash-teal {
+  position: absolute;
+  left: -15%;
+  top: 10%;
+  width: 75%;
+  height: 50px;
+  background: $iw-teal;
+  transform: rotateZ(-45deg);
+  z-index: -1;
+}

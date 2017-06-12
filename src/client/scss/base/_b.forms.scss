@@ -76,13 +76,22 @@ label,
   }
 }
 
+.form-field--focus {
+  border: 1px solid $iw-teal;
+  outline: none;
+}
+
+.form-field__label .text--error {
+  color: $iw-orange;
+}
+
 input[type="text"], input[type="email"], input[type="tel"], input[type="password"], input[type="number"], select {
-  border: 1px solid $iw-light-grey;
+  border: 0;
   transition: border .5s;
-  border-radius: 0;
+  width: 100%;
+  height: 100%;
 
   &:focus {
-    border: 1px solid $iw-teal;
     outline: none;
   }
 }

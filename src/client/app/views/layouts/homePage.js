@@ -1,8 +1,28 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+
+import SurveyForm from '../forms/survey';
+import Loading from '../components/loading';
+import Success from '../components/success';
+
+const survey = <SurveyForm/>;
+const loading = <Loading/>;
+const success = <Success/>;
 
 export class HomePage extends Component {
 
   render() {
+    let formView = survey;
+
+    if (this.props.submission.isSending) {
+      formView = loading;
+    }
+
+    if (this.props.submission.sendApplicationResult) {
+      formView = success;
+    }
+
     return (
       <div className="content">
         <div className="flush  soft__triple  background--white  brt--half  bb--grey">
@@ -18,21 +38,19 @@ export class HomePage extends Component {
             page as proof that it costs next to nothing to run. ;)
           </p>
         </div>
-        <form>
-          <div className="flush  soft__triple  background--white  bb--grey">
-            <h2 className="flush">The Survey</h2>
-            <div className="ruler--hr"></div>
-            <input className="block  soft__base  push__base--top" type="text" placeholder="Your Name"></input>
-            <input className="block  soft__base  push__base--top" type="text" placeholder="Your Email Address"></input>
-          </div>
-          <div className="flush  soft__double--ends  soft__triple--sides  background--white  brb--half  cf">
-            <input className="fr" type="submit" value="Submit"></input>
-          </div>
-        </form>
-
+        {formView}
       </div>
+
     );
   }
 }
 
-export default HomePage;
+const mapStateToProps = (state, ownProps) => {
+  const { submission } = state;
+
+  return {
+    submission
+  };
+}
+
+export default connect(mapStateToProps)(HomePage);
