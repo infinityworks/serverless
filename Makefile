@@ -21,7 +21,7 @@ create-cert:
 	 $(NODE_CONTAINER)\
 	 /bin/sh -c "/bin/sh generate serverless.iwc.dev"
 
-init: init-client init-lambdas
+init: init-client init-lambdas init-local-api
 
 build: build-client
 
@@ -29,7 +29,12 @@ test: test-client
 
 lint: lint-client
 
-
+init-local-api:
+	docker run --rm\
+	 -w /api\
+	 -v `pwd`/infrastructure/local/api:/api\
+	 $(NODE_CONTAINER)\
+	 /bin/sh -c "npm install"
 
 # =======================================================
 # Infrastructure Targets
@@ -88,6 +93,8 @@ terraform-destroy:
 # =======================================================
 # Continuous Integration Targets
 # =======================================================
+
+ci-init: init-client init-lambdas
 
 ci-build:
 	docker run --rm\

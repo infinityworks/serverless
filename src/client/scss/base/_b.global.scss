@@ -1,4 +1,4 @@
-@import "~normalize.scss";
+@import "~normalize.scss/normalize";
 
 html {
   font:#{($base-font-size / 16px)*1em}/#{$unitless-line-height} sans-serif;

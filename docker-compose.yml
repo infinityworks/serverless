@@ -3,17 +3,19 @@ services:
   devserver:
     ports:
     - "8080:8080"
-    image: "node:latest"
+    image: "node:8.1.0"
     volumes:
     - ./src/client:/client
+    - ./infrastructure/local/pki:/certs
     container_name: serverless_devserver
     command: ["/bin/sh","-c","cd /client; npm run start-dev"]
   api:
     ports:
     - "8888:8888"
-    image: "node"
+    image: "node:8.1.0"
     volumes:
     - ./infrastructure/local/api:/api
+    - ./infrastructure/local/pki:/pki
     - ./src/lambdas:/lambdas
     environment:
       - DEV_MODE=true

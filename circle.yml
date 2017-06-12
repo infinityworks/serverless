@@ -23,7 +23,7 @@ dependencies:
     - "src/client/node_modules"
     - "src/lambdas/node_modules"
   post:
-    - make init
+    - make ci-init
 
 test:
   override:

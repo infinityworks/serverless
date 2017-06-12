@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-dev": "NODE_ENV=development webpack-dev-server --host 0.0.0.0 --inline --hot --https --cert ../rootCA.pem --key ../rootCA.key --content-base static/",
+    "start-dev": "NODE_ENV=development webpack-dev-server --host 0.0.0.0 --inline --hot --https --cert /certs/serverless.pem --key /certs/serverless.key --content-base static/",
     "build-dev": "NODE_ENV=development webpack --devtool source-map --config webpack.config.js",
     "build-prod": "NODE_ENV=production webpack --config webpack.config.js --optimize-minimize",
     "test": "NODE_ENV=test mocha --recursive --compilers js:babel-core/register --require jsdom-global/register test",

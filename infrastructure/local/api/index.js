@@ -6,16 +6,16 @@ var fs = require('fs');
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
+var https = require('https');
+var processor = require('/lambdas/processor');
+
 var app = express();
 
 // Enable SSL termination
-var privateKey  = fs.readFileSync(path.join(__dirname, '../config/pki/serverless.key'), 'utf8');
-var certificate = fs.readFileSync(path.join(__dirname, '../config/pki/serverless.pem'), 'utf8');
-var credentials = {key: privateKey, cert: certificate};
-var https = require('https');
-var httpsServer = https.createServer(credentials, app);
-
-var processor = require('/lambdas/processor');
+var httpsServer = https.createServer({
+  key: fs.readFileSync('/pki/serverless.key', 'utf8'),
+  cert: fs.readFileSync('/pki/serverless.pem', 'utf8')
+}, app);
 
 app.set('port', (process.env.PORT || 8888));
 app.use('/', express.static(path.join(__dirname, 'public')));
