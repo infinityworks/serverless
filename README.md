@@ -37,6 +37,8 @@ You can build the app locally by running `make build`. Make sure to run `make in
 
 To run the whole stack locally, including the local API mock and DynamoDB instance, run the `docker-compose up` command. This will run a webpack dev server for the client application, a simple express application for the API and a DynamoDB instance.
 
+The webpack dev server will run a watch command and automatically pick up any changes you make to the client code, including the JavaScript and SCSS. It even does some magic to auto-reload in the browser so you can see your changes live.
+
 ### Running terraform
 
 #### Initial setup on the AWS Console
