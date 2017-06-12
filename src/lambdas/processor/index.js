@@ -1,7 +1,18 @@
 'use strict';
 
+const DEV = process.env.DEV_MODE == 'true';
+
 const AWS = require('aws-sdk');
 const uniqueId = require('./uniqueId');
+
+if (DEV) {
+  AWS.config.update({
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID || 'aaa',
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || 'bbb',
+    region: process.env.AWS_REGION || 'us-west-2',
+    endpoint: process.env.AWS_DYNAMODB_ENDPOINT
+  })
+}
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
@@ -33,7 +44,7 @@ function getHandler(docClient, uniqueId) {
     event.dateCreated = (new Date()).toString();
     console.log('Inserting submission with ID: ', event.id);
 
-    docClient.put({ TableName: getApplicationsTableName(context), Item: event }, function(err, data) {
+    docClient.put({ TableName: getTableName(context), Item: event }, function(err, data) {
       if (err) {
         console.log('[ERROR] Failed to insert application. Error JSON: ', JSON.stringify(err, null, 2));
         return;
