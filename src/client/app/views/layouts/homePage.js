@@ -18,14 +18,18 @@ export class HomePage extends Component {
             page as proof that it costs next to nothing to run. ;)
           </p>
         </div>
-        <div className="flush  soft__triple  background--white  brb--half">
-          <h2 className="flush">The Survey</h2>
-          <div className="ruler--hr"></div>
-          <form>
-            <input type="text" placeholder="Name"></input>
-            <input type="text" placeholder="Email Address"></input>
-          </form>
-        </div>
+        <form>
+          <div className="flush  soft__triple  background--white  bb--grey">
+            <h2 className="flush">The Survey</h2>
+            <div className="ruler--hr"></div>
+            <input className="block  soft__base  push__base--top" type="text" placeholder="Your Name"></input>
+            <input className="block  soft__base  push__base--top" type="text" placeholder="Your Email Address"></input>
+          </div>
+          <div className="flush  soft__double--ends  soft__triple--sides  background--white  brb--half  cf">
+            <input className="fr" type="submit" value="Submit"></input>
+          </div>
+        </form>
+
       </div>
     );
   }
