@@ -91,45 +91,6 @@ export class SurveyForm extends Component {
               required={true}
               full={true}/>
           </div>
-          <div className="push__double--top">
-            <label className="push__double--bottom" htmlFor="alcohol">On average, how many units of alcohol do you consume a week?</label>
-            <RadioButton
-              name="alcohol"
-              value="1-10"
-              label="1-10"
-              checked={this.props.submission.fields.gender === '1-10'}
-              onChange={((e) => this.props.update('alcohol', e.target.value)).bind(this)} />
-            <RadioButton
-              name="alcohol"
-              value="10-20"
-              label="10-20"
-              checked={this.props.submission.fields.gender === '10-20'}
-              onChange={((e) => this.props.update('alcohol', e.target.value)).bind(this)} />
-            <RadioButton
-              name="alcohol"
-              value="20-50"
-              label="20-50"
-              checked={this.props.submission.fields.gender === '20-50'}
-              onChange={((e) => this.props.update('alcohol', e.target.value)).bind(this)} />
-            <RadioButton
-              name="alcohol"
-              value="50-100"
-              label="50-100"
-              checked={this.props.submission.fields.gender === '50-100'}
-              onChange={((e) => this.props.update('alcohol', e.target.value)).bind(this)} />
-            <RadioButton
-              name="alcohol"
-              value="100+"
-              label="100+"
-              checked={this.props.submission.fields.gender === '100+'}
-              onChange={((e) => this.props.update('alcohol', e.target.value)).bind(this)} />
-            <RadioButton
-              name="alcohol"
-              value="dontdrink"
-              label="I don't drink, I care about my health"
-              checked={this.props.submission.fields.gender === 'dontdrink'}
-              onChange={((e) => this.props.update('alcohol', e.target.value)).bind(this)} />
-          </div>
         </div>
         <div className="flush  soft__double--ends  soft__triple--sides  background--white  brb--half  cf">
           {this.props.submission.error ? (

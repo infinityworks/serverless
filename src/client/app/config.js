@@ -1,9 +1,6 @@
 const config = {
   development: {
-    apiDomain: 'https://serverless.iwc.dev:8888/api/'
-  },
-  test: {
-    apiDomain: 'https://serverless.iwc.dev:8888/api/'
+    apiDomain: 'https://localhost:8888/api/'
   },
   production: {
     apiDomain: '/api/'
